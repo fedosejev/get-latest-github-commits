@@ -1,0 +1,24 @@
+{
+  "name": "get-latest-github-commits",
+  "version": "1.0.0",
+  "description": "Get the latest GitHub commits from selected repositories.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fedosejev/get-latest-github-commits.git"
+  },
+  "author": "Artemij Fedosejev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fedosejev/get-latest-github-commits/issues"
+  },
+  "homepage": "https://github.com/fedosejev/get-latest-github-commits",
+  "dependencies": {
+    "github": "^0.2.4",
+    "moment": "^2.12.0",
+    "rx": "^4.1.0"
+  }
+}
