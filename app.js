@@ -6,7 +6,7 @@ var fs = require('fs');
 var fileContents = fs.readFileSync('config.json', 'utf8');
 var fileJson = JSON.parse(fileContents);
 
-var STUDENTS = fileJson.users;
+var USERS = fileJson.users;
 var GITHUB_AUTH = fileJson.gitHub;
 
 var gitHub = new GitHubApi({
@@ -27,32 +27,32 @@ gitHub.authenticate({
 });
 
 Rx.Observable
-  .from(STUDENTS)
-  .flatMap(function (student) {
+  .from(USERS)
+  .flatMap(function (user) {
     return Rx.Observable.create(function (observer) {
 
       gitHub.events.getFromRepo({
-        user: student.gitHubUsername,
+        user: user.gitHubUsername,
         repo: 'tiy-front-end-course'
-      }, function(error, response) {
+      }, function(error, events) {
 
-        observer.onNext(response);
+        observer.onNext(events);
 
       });
     });
   })
-  .map(function (responses) {
-    return responses.filter(function (response) {
-      return (response.type === 'PushEvent');
+  .map(function (events) {
+    return events.filter(function (event) {
+      return (event.type === 'PushEvent');
     });
   })
-  .map(function (response) {
-    return response[0];
+  .map(function (events) {
+    return events[0];
   })
   .subscribe(
-    function onCompleted(response) {
-      var lastCommit = moment(response.created_at).format('dddd, Do of MMMM YYYY, HH:mm');
+    function onCompleted(event) {
+      var lastCommit = moment(event.created_at).format('dddd, Do of MMMM YYYY, HH:mm');
 
-      console.log('🔥  ' + response.actor.login + ': 👉 ', lastCommit);
+      console.log('🔥  ' + event.actor.login + ': 👉 ', lastCommit);
     }
 );
