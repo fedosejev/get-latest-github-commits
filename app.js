@@ -40,9 +40,7 @@ var studentObservable = Rx.Observable
 
       });
     });
-  });
-
-studentObservable
+  })
   .map(function (responses) {
     return responses.filter(function (response) {
       return (response.type === 'PushEvent');
