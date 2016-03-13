@@ -28,7 +28,7 @@ gitHub.authenticate({
 
 var studentObservable = Rx.Observable
   .from(STUDENTS)
-  .selectMany(function (student) {
+  .flatMap(function (student) {
     return Rx.Observable.create(function (observer) {
 
       gitHub.events.getFromRepo({
