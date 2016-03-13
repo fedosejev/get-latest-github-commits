@@ -51,8 +51,8 @@ Rx.Observable
   })
   .subscribe(
     function onCompleted(event) {
-      var lastCommit = moment(event.created_at).format('dddd, Do of MMMM YYYY, HH:mm');
+      var lastCommitDate = moment(event.created_at).format('dddd, Do of MMMM YYYY, HH:mm');
 
-      console.log('🔥  ' + event.actor.login + ': 👉 ', lastCommit);
+      console.log('🔥  ' + event.actor.login + ': 👉 ', lastCommitDate);
     }
 );
