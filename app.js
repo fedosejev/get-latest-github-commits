@@ -26,7 +26,7 @@ gitHub.authenticate({
   password: GITHUB_AUTH.password
 });
 
-var studentObservable = Rx.Observable
+Rx.Observable
   .from(STUDENTS)
   .flatMap(function (student) {
     return Rx.Observable.create(function (observer) {
