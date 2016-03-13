@@ -23,15 +23,16 @@ var gitHub = new GitHubApi({
   }
 });
 
+gitHub.authenticate({
+  type: 'basic',
+  username: GITHUB_AUTH.username,
+  password: GITHUB_AUTH.password
+});
+
 var studentObservable = Rx.Observable
   .from(STUDENTS)
   .selectMany(function (student) {
     return Rx.Observable.create(function (observer) {
-      gitHub.authenticate({
-        type: 'basic',
-        username: GITHUB_AUTH.username,
-        password: GITHUB_AUTH.password
-      });
 
       gitHub.events.getFromRepo({
         user: student.gitHubUsername,
