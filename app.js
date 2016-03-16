@@ -43,7 +43,7 @@ Rx.Observable
   })
   .map(function (events) {
     return events.filter(function (event) {
-      return (event.type === 'PushEvent');
+      return (event.type === 'PushEvent' || event.type === 'CreateEvent');
     });
   })
   .map(function (events) {
