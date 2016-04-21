@@ -2,9 +2,6 @@ var GitHubApi = require('github');
 var moment = require('moment');
 var Rx = require('rx');
 var fs = require('fs');
- 
-var fileContents;
-var fileJson;
 
 var USERS;
 var GITHUB_AUTH;
@@ -12,8 +9,8 @@ var GITHUB_AUTH;
 var gitHub;
 
 function configure() {
-  fileContents = fs.readFileSync('config.json', 'utf8');
-  fileJson = JSON.parse(fileContents);
+  var fileContents = fs.readFileSync('config.json', 'utf8');
+  var fileJson = JSON.parse(fileContents);
 
   USERS = fileJson.users;
   GITHUB_AUTH = fileJson.gitHub;
