@@ -2,6 +2,10 @@
 
 Built with Node.js and RxJS.
 
+## Install
+
+`npm install`
+
 ## Run
 
 `node app`
