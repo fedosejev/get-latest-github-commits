@@ -35,7 +35,7 @@ function authenticate() {
   });
 }
 
-function getData() {
+function getAndLogData() {
   Rx.Observable
     .from(USERS)
     .flatMap(function (user) {
@@ -70,4 +70,4 @@ function getData() {
 
 configure();
 authenticate();
-getData();
+getAndLogData();
