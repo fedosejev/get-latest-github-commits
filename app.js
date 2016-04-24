@@ -44,7 +44,7 @@ function getAndLogData() {
         gitHub.events.getFromRepo({
           user: user.gitHubUsername,
           repo: 'tiy-front-end-course'
-        }, function(error, events) {
+        }, function handleResult(error, events) {
 
           observer.onNext(events);
 
@@ -59,13 +59,11 @@ function getAndLogData() {
     .map(function (events) {
       return events[0];
     })
-    .subscribe(
-      function onCompleted(event) {
+    .subscribe(function onCompleted(event) {
         var lastCommitDate = moment(event.created_at).format('dddd, Do of MMMM YYYY, HH:mm');
 
         console.log('🔥  ' + event.actor.login + ': 👉 ', lastCommitDate);
-      }
-  );
+    });
 }
 
 configure();
