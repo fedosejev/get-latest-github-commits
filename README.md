@@ -2,11 +2,11 @@
 
 Built with Node.js and RxJS.
 
-## Install
+## 1. Install
 
 `npm install`
 
-### Create `config.json` file
+## 2. Create `config.json` file
 
 ```json
 {
@@ -23,7 +23,7 @@ Built with Node.js and RxJS.
 }
 ```
 
-## Run
+## 3. Run
 
 `node app`
 
