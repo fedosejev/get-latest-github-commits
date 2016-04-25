@@ -6,6 +6,23 @@ Built with Node.js and RxJS.
 
 `npm install`
 
+### Create `config.json` file
+
+```json
+{
+  "gitHub": {
+    "username": "<your GitHub username>",
+    "password": "<your GitHub password>"
+  },
+  "users": [
+    {
+      "name": "Artemij Fedosejev",
+      "gitHubUsername": "fedosejev"
+    },
+  ]
+}
+```
+
 ## Run
 
 `node app`
